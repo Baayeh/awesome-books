@@ -3,14 +3,7 @@ const ul = document.querySelector('#book-list');
 
 // Get data from localstorage
 const parsedData = JSON.parse(localStorage.getItem(('books')));
-const books = parsedData ? parsedData : [];
-
-// Display books on website
-function displayBooks() {
-  books.forEach((item, index) => {
-    addBooktoArray(item, index);
-  });
-}
+const books = parsedData;
 
 // Add book to browser
 function addBooktoArray(item, index) {
@@ -25,9 +18,16 @@ function addBooktoArray(item, index) {
   ul.appendChild(li);
 }
 
+// Display books on website
+function displayBooks() {
+  books.forEach((item, index) => {
+    addBooktoArray(item, index);
+  });
+}
+
 // remove book
 function removeBook(element) {
-  if(element.classList.contains('removeBtn')) {
+  if (element.classList.contains('removeBtn')) {
     element.parentElement.remove();
     const bookID = element.parentElement.getAttribute('key');
     const result = books.filter((book) => book !== books[bookID]);
