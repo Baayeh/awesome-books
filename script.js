@@ -29,13 +29,11 @@ function addBooktoArray(item, index) {
 function removeBook(element) {
   if(element.classList.contains('removeBtn')) {
     element.parentElement.remove();
-    let bookID = element.parentElement.getAttribute('key');
-    const result = books.filter((book) => {
-      return book !== books[bookID];
-    });
+    const bookID = element.parentElement.getAttribute('key');
+    const result = books.filter((book) => book !== books[bookID]);
 
     // convert result into string and store new data in localStorage
-    let filteredData = JSON.stringify(result);
+    const filteredData = JSON.stringify(result);
     localStorage.setItem('books', filteredData);
   }
 }
@@ -48,20 +46,18 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   // Getting input fields from the browser
-  const title = form.elements.title;
-  const author = form.elements.author;
+  const [title, author] = form.elements;
 
   // getting the values of both input fields
   const titleValue = title.value;
   const authorValue = author.value;
 
   // add book when fields are not empty
-  if(titleValue !== '' || authorValue !== '') {
-    
+  if (titleValue !== '' || authorValue !== '') {
     // create book object
     const book = {
       title: titleValue,
-      author: authorValue
+      author: authorValue,
     };
 
     // add book object to array
