@@ -4,9 +4,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Awesome Books</title>
 </head>
 <body>
-  
+  <h1>Awesome Books</h1>
+
+  <ul id="book-list">
+    <li class="list-item">
+      <h3 class="title">Lorem Ipsum</h3>
+      <p class="author">Random Name</p>
+      <button class="removeBtn">Remove</button>
+    </li>
+    <hr>
+  </ul>
+
+  <form id="form">
+    <input class="form-control" type="text" name="title" placeholder="Title">
+    <input class="form-control" type="text" name="author" placeholder="Author">
+    <button class="addBtn" type="submit">Add</button>
+  </form>
+
+  <script src="./script.js"></script>
 </body>
 </html>
