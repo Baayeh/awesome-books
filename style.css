@@ -1,0 +1,17 @@
+ul#book-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h3.title,
+p.author {
+  margin: 0;
+}
+
+form#form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1em;
+}
