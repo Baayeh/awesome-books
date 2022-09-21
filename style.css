@@ -1,17 +1,66 @@
-ul#book-list {
-  list-style-type: none;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-h3.title,
-p.author {
-  margin: 0;
+button {
+  padding: 0 0.3em;
+  box-shadow: 3px 3px #000;
+  cursor: pointer;
 }
 
-form#form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1em;
+section#wrapper {
+  padding: 1em;
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+  border: 2px solid #000;
+  margin-top: 1em;
+}
+
+ul li {
+  display: grid;
+  justify-items: ;
+  grid-template-columns: 5fr 1fr;
+  column-gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
+}
+
+p.title {
+  text-align: start;
+}
+
+ul li:nth-child(odd) {
+  background-color: rgb(213, 213, 213);
+}
+
+div#divider {
+  width: 20%;
+  height: 3px;
+  background-color: #000;
+  margin: 2em auto; 
+}
+
+form#form h2 {
+  margin: 0 0 0.5em 0;
+}
+
+form#form div.form-input input {
+  width: 60%;
+  padding: 0.3em;
+}
+
+form#form div.form-input:nth-child(3){
+  margin: 1em 0;
+}
+
+form#form button.addBtn {
+  margin-left: 35em;
 }
