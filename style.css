@@ -25,7 +25,6 @@ ul {
 
 ul li {
   display: grid;
-  justify-items: ;
   grid-template-columns: 5fr 1fr;
   column-gap: 1em;
   justify-content: space-between;
@@ -45,7 +44,7 @@ div#divider {
   width: 20%;
   height: 3px;
   background-color: #000;
-  margin: 2em auto; 
+  margin: 2em auto;
 }
 
 form#form h2 {
@@ -57,7 +56,7 @@ form#form div.form-input input {
   padding: 0.3em;
 }
 
-form#form div.form-input:nth-child(3){
+form#form div.form-input:nth-child(3) {
   margin: 1em 0;
 }
 
