@@ -1,9 +1,12 @@
+/* eslint-disable max-classes-per-file */
+/* eslint-disable class-methods-use-this */
+
 const form = document.querySelector('#form');
 const ul = document.querySelector('#book-list');
 
 // if books !== null
 let books;
-if(localStorage.getItem('books') === null) {
+if (localStorage.getItem('books') === null) {
   books = [];
 } else {
   books = JSON.parse(localStorage.getItem('books'));
@@ -18,7 +21,7 @@ class Book {
 }
 
 // Define Methods class
-class methods { 
+class Methods {
   // Add book to browser
   addBooktoArray(item, index) {
     const li = document.createElement('li');
@@ -35,8 +38,8 @@ class methods {
   }
 
   // remove book
- removeBook(element) {
-  if (element.classList.contains('removeBtn')) {
+  removeBook(element) {
+    if (element.classList.contains('removeBtn')) {
     // get parent element of button and remove it from the browser
       element.parentElement.remove();
 
@@ -50,14 +53,16 @@ class methods {
   }
 }
 
-//Create an instance of methods class
-const method = new methods();
+// Create an instance of Methods class
+const method = new Methods();
 
 // Display books on website
 function displayBooks() {
-  books.forEach((item, index) => {
-    method.addBooktoArray(item, index);
-  });
+  if (books !== null) {
+    books.forEach((item, index) => {
+      method.addBooktoArray(item, index);
+    });
+  }
 }
 
 // Event to display books in browser
@@ -78,7 +83,7 @@ form.addEventListener('submit', (e) => {
   if (titleValue !== '' || authorValue !== '') {
     // create book object
     const book = new Book(titleValue, authorValue);
-    
+
     // add book object to array
     books.push(book);
     method.addBooktoArray(book);
