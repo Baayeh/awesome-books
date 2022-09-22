@@ -103,8 +103,21 @@ form#form button.addBtn {
   margin-left: 35em;
 }
 
+#contact h2 {
+  text-align: center;
+}
+
+#contact-info {
+  list-style-type: disc;
+  margin-left: 1em;
+}
+
 footer {
   border: 2px solid #000;
   padding: 0.2em;
   margin-top: 2em;
+}
+
+.display-section {
+  display: none;
 }

@@ -4,6 +4,32 @@
 const form = document.querySelector('#form');
 const ul = document.querySelector('#book-list');
 
+//Getting sections of The HTML
+const contactSection = document.querySelector('#contact');
+const contactLink = document.querySelector('#contact-link');
+const list = document.querySelector('#list');
+const addNew = document.querySelector('#add');
+
+//remove the other sections when list link is clicked
+list.addEventListener('click', () => {
+  form.classList.add('display-section');
+  contactSection.classList.add('display-section');
+
+  
+});
+
+//remove other sections when add new is clicked
+addNew.addEventListener('click', () => {
+  ul.classList.add('display-section');
+  contactSection.classList.add('display-section');
+});
+
+//remove other sections when contact is clicked
+contactLink.addEventListener('click', () => {
+  ul.classList.add('display-section');
+  form.classList.add('display-section');
+});
+
 // Define Book Class
 class Book {
   constructor(title, author, id) {
