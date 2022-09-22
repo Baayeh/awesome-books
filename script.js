@@ -5,6 +5,7 @@ const form = document.querySelector('#form');
 const ul = document.querySelector('#book-list');
 const bookSection = document.querySelector('#bookSection');
 const heading = document.querySelector('.page-title');
+const dateTime = document.querySelector('#time');
 
 // Getting sections of The HTML
 const contactSection = document.querySelector('#contact');
@@ -167,6 +168,38 @@ class Methods {
 
    heading.textContent = 'All awesome books';
  }
+
+ static getDateFormat() {
+   const date = new Date();
+   const time = date.toLocaleTimeString();
+   const month = date.toLocaleString('en-US', {
+     month: 'long',
+   });
+   const year = date.getFullYear();
+   const day = this.getSuffix(date.getDate());
+
+   return `${month} ${day} ${year}, ${time}`;
+ }
+
+ static getSuffix(date) {
+   if (date > 3 && date < 21) {
+     return `${date}th`;
+   }
+   switch (date % 10) {
+     case 1:
+
+       return `${date}st`;
+     case 2:
+
+       return `${date}nd`;
+     case 3:
+
+       return `${date}rd`;
+
+     default:
+       return `${date}th`;
+   }
+ }
 }
 
 // Get all books from the localStorage anytime the page loads fully
@@ -212,3 +245,5 @@ ul.addEventListener('click', (e) => {
     e.target.parentElement.remove();
   }
 });
+
+dateTime.textContent = Methods.getDateFormat();

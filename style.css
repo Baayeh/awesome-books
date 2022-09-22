@@ -30,6 +30,11 @@ nav#navigation {
   align-items: center;
 }
 
+div#time {
+  text-align: right;
+  font-size: 14px;
+}
+
 ul {
   list-style-type: none;
 }
