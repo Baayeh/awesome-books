@@ -3,31 +3,73 @@
 
 const form = document.querySelector('#form');
 const ul = document.querySelector('#book-list');
+const bookSection = document.querySelector('#bookSection');
+const heading = document.querySelector('.page-title');
 
-//Getting sections of The HTML
+// Getting sections of The HTML
 const contactSection = document.querySelector('#contact');
 const contactLink = document.querySelector('#contact-link');
 const list = document.querySelector('#list');
 const addNew = document.querySelector('#add');
 
-//remove the other sections when list link is clicked
+// remove the other sections when list link is clicked
 list.addEventListener('click', () => {
-  form.classList.add('display-section');
-  contactSection.classList.add('display-section');
+  // remove form section
+  if (!form.classList.contains('remove-section')) {
+    form.classList.add('remove-section');
+  }
 
-  
+  // remove contact section
+  if (!contactSection.classList.contains('remove-section')) {
+    contactSection.classList.add('remove-section');
+  }
+
+  // add list section
+  if (bookSection.classList.contains('remove-section')) {
+    bookSection.classList.remove('remove-section');
+  }
+
+  heading.textContent = 'All awesome books';
 });
 
-//remove other sections when add new is clicked
+// remove other sections when add new is clicked
 addNew.addEventListener('click', () => {
-  ul.classList.add('display-section');
-  contactSection.classList.add('display-section');
+  // remove list section
+  if (!bookSection.classList.contains('remove-section')) {
+    bookSection.classList.add('remove-section');
+  }
+
+  // remove contact section
+  if (!contactSection.classList.contains('remove-section')) {
+    contactSection.classList.add('remove-section');
+  }
+
+  // add form section
+  if (form.classList.contains('remove-section')) {
+    form.classList.remove('remove-section');
+  }
+
+  heading.textContent = 'Add a new book';
 });
 
-//remove other sections when contact is clicked
+// remove other sections when contact is clicked
 contactLink.addEventListener('click', () => {
-  ul.classList.add('display-section');
-  form.classList.add('display-section');
+  // remove list section
+  if (!bookSection.classList.contains('remove-section')) {
+    bookSection.classList.add('remove-section');
+  }
+
+  // remove form section
+  if (!form.classList.contains('remove-section')) {
+    form.classList.add('remove-section');
+  }
+
+  // add contact section
+  if (contactSection.classList.contains('remove-section')) {
+    contactSection.classList.remove('remove-section');
+  }
+
+  heading.textContent = 'Contact information';
 });
 
 // Define Book Class
@@ -69,6 +111,7 @@ class Methods {
   <button class="removeBtn">Remove</button>
   </li>`;
    ul.innerHTML += li;
+   ul.style.display = 'block';
  }
 
  // add book to array and store it in localStorage
@@ -98,12 +141,31 @@ class Methods {
    this.books = JSON.parse(localStorage.getItem('books'));
 
    // check if the books array is not empty
-   if (this.books.length !== 0) {
-     ul.style.display = 'block';
-   } else {
+   if (this.books.length === 0) {
      ul.style.display = 'none';
      localStorage.clear();
+   } else {
+     ul.style.display = 'block';
    }
+ }
+
+ static displayListOnly() {
+   // remove form section
+   if (!form.classList.contains('remove-section')) {
+     form.classList.add('remove-section');
+   }
+
+   // remove contact section
+   if (!contactSection.classList.contains('remove-section')) {
+     contactSection.classList.add('remove-section');
+   }
+
+   // add list section
+   if (bookSection.classList.contains('remove-section')) {
+     bookSection.classList.remove('remove-section');
+   }
+
+   heading.textContent = 'All awesome books';
  }
 }
 
@@ -124,9 +186,6 @@ form.addEventListener('submit', (e) => {
   // create book object from Book class and pass the form values to it
   const book = new Book(titleValue, authorValue, Methods.books.length);
 
-  // display the ul tag
-  ul.style.display = 'block';
-
   // add the new book object to the array and store it to the localStorage
   Methods.addBook(book);
 
@@ -135,6 +194,8 @@ form.addEventListener('submit', (e) => {
 
   // clear the form values
   form.reset();
+
+  Methods.displayListOnly();
 });
 
 // remove book when remove button is clicked

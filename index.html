@@ -24,12 +24,12 @@
     <h1 class="page-title">All awesome books</h1>
 
     <!-- Book List -->
-    <ul id="book-list"></ul>
-    <div id="divider"></div>
+    <section id="bookSection">
+      <ul id="book-list"></ul>
+    </section>
 
     <!--Form to add book to list -->
-    <form id="form">
-      <h2>Add a new book</h2>
+    <form id="form" class="remove-section">
       <div class="form-input">
         <label for="title" hidden>Title</label>
         <input type="text" id="title" name="title" placeholder="Title">
@@ -44,12 +44,9 @@
     </form>
 
     <!-- Contact Section -->
-    <section id="contact">
-      <h2>Contact information</h2>
-      <p>Do you have any questions or you just want to say "Hello"?
-      </p>
-      <p>You can reach out to us!
-      </p>
+    <section id="contact" class="remove-section">
+      <p>Do you have any questions or you just want to say "Hello"?</p>
+      <p>You can reach out to us!</p>
       <ul id="contact-info">
         <li>Our email:mail@mail.com</li>
         <li>Our phone number:0043586534422</li>

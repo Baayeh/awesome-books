@@ -50,7 +50,7 @@ ul#nav-list li:nth-child(2) {
 
 h1.page-title {
   text-align: center;
-  margin-top: 2em;
+  margin: 2em 0;
 }
 
 ul#book-list {
@@ -73,13 +73,6 @@ p.title {
 
 ul#book-list li:nth-child(odd) {
   background-color: rgb(213, 213, 213);
-}
-
-div#divider {
-  width: 20%;
-  height: 3px;
-  background-color: #000;
-  margin: 2em auto;
 }
 
 form#form {
@@ -107,9 +100,10 @@ form#form button.addBtn {
   text-align: center;
 }
 
-#contact-info {
+ul#contact-info {
   list-style-type: disc;
-  margin-left: 1em;
+  margin-top: 1em;
+  margin-left: 3em;
 }
 
 footer {
@@ -118,6 +112,6 @@ footer {
   margin-top: 2em;
 }
 
-.display-section {
+.remove-section {
   display: none;
 }
