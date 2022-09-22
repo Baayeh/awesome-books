@@ -43,6 +43,15 @@ ul#nav-list li {
   padding: 0.2em;
 }
 
+ul#book-list li {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  column-gap: 1em;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
+}
+
 ul#nav-list li:nth-child(2) {
   border-left: 2px solid #000;
   border-right: 2px solid #000;
@@ -58,15 +67,6 @@ ul#book-list {
   margin-top: 1em;
 }
 
-ul#book-list li {
-  display: grid;
-  grid-template-columns: 5fr 1fr;
-  column-gap: 1em;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5em;
-}
-
 p.title {
   text-align: start;
 }
@@ -76,6 +76,10 @@ ul#book-list li:nth-child(odd) {
 }
 
 form#form {
+  text-align: center;
+}
+
+#contact h2 {
   text-align: center;
 }
 
@@ -94,10 +98,6 @@ form#form div.form-input:nth-child(3) {
 
 form#form button.addBtn {
   margin-left: 35em;
-}
-
-#contact h2 {
-  text-align: center;
 }
 
 ul#contact-info {
